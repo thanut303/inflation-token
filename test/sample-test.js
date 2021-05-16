@@ -1,14 +1,13 @@
 const { expect } = require("chai");
 
-describe("Greeter", function() {
+describe("InflationToken", function() {
   it("Should return the new greeting once it's changed", async function() {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
+    const InflationToken = await ethers.getContractFactory("InflationToken");
+    const inflationtoken = await InflationToken.deploy();
     
-    await greeter.deployed();
-    expect(await greeter.greet()).to.equal("Hello, world!");
+    await inflationtoken.deployed();
+    expect(await inflationtoken.name()).to.equal("Tiger");
 
-    await greeter.setGreeting("Hola, mundo!");
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+    expect(await inflationtoken.symbol()).to.equal("TIGER");
   });
 });
